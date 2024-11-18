@@ -1,0 +1,121 @@
+---
+const phone = "34744717942";
+---
+
+<div 
+  id="leadPopup" 
+  class="fixed inset-0 bg-black/50 z-50 hidden"
+  role="dialog"
+  aria-labelledby="popupTitle"
+>
+  <div class="min-h-screen px-4 text-center flex items-center justify-center">
+    <div class="fixed inset-0" aria-hidden="true"></div>
+    <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 text-left relative transform transition-all">
+      <!-- Botón cerrar -->
+      <button 
+        type="button"
+        id="closePopupBtn"
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-500"
+        aria-label="Cerrar"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Contenido -->
+      <div class="text-center">
+        <h2 id="popupTitle" class="text-2xl font-bold mb-2">¡Oferta Especial!</h2>
+        <p class="text-gray-600 mb-6">
+          Solicita ahora tu presupuesto y obtén un <span class="text-primary font-semibold">10% de descuento</span> en tu proyecto de pintura
+        </p>
+
+        <form id="leadForm" class="space-y-4">
+          <div>
+            <input 
+              type="text" 
+              id="popupName" 
+              placeholder="Tu nombre"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+              required
+            >
+            <p class="text-sm text-gray-500 mt-1">Tu privacidad es importante para nosotros</p>
+          </div>
+
+          <div>
+            <input 
+              type="tel" 
+              id="popupPhone" 
+              placeholder="Tu teléfono"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+              required
+            >
+            <p class="text-sm text-gray-500 mt-1">Te contactaremos lo antes posible</p>
+          </div>
+
+          <button 
+            type="submit"
+            class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            ¡Quiero mi Descuento!
+          </button>
+
+          <p class="text-xs text-gray-500 mt-4">
+            Al enviar el formulario, aceptas recibir comunicaciones sobre tu presupuesto
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let hasShownPopup = false;
+
+  function showPopup() {
+    if (!hasShownPopup && !localStorage.getItem('popupShown')) {
+      const popup = document.getElementById('leadPopup');
+      if (popup) {
+        popup.classList.remove('hidden');
+        hasShownPopup = true;
+        localStorage.setItem('popupShown', 'true');
+      }
+    }
+  }
+
+  function closePopup() {
+    const popup = document.getElementById('leadPopup');
+    if (popup) {
+      popup.classList.add('hidden');
+    }
+  }
+
+  // Agregar event listener al botón de cerrar
+  const closeBtn = document.getElementById('closePopupBtn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePopup);
+  }
+
+  // Mostrar popup después de 30 segundos
+  setTimeout(showPopup, 30000);
+
+  // Mostrar popup al intentar salir de la página
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 0 && !hasShownPopup) {
+      showPopup();
+    }
+  });
+
+  // Manejar envío del formulario
+  const form = document.getElementById('leadForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('popupName') as HTMLInputElement)?.value || '';
+      const phone = (document.getElementById('popupPhone') as HTMLInputElement)?.value || '';
+      const message = `Hola, me interesa el descuento del 10%. Mi nombre es ${name} y mi teléfono es ${phone}`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+      closePopup();
+    });
+  }
+</script>

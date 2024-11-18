@@ -1,0 +1,60 @@
+---
+const reasons = [
+  {
+    title: "Experiencia y Profesionalidad",
+    description: "Más de 15 años de experiencia en el sector de la pintura residencial y comercial.",
+    icon: "👨‍🔧"
+  },
+  {
+    title: "Materiales Premium",
+    description: "Utilizamos solo productos de primera calidad de las mejores marcas del mercado.",
+    icon: "🎨"
+  },
+  {
+    title: "Garantía de Calidad",
+    description: "Todos nuestros trabajos cuentan con garantía por escrito de hasta 3 años.",
+    icon: "✅"
+  },
+  {
+    title: "Puntualidad",
+    description: "Cumplimos estrictamente con los plazos acordados en cada proyecto.",
+    icon: "⏰"
+  },
+  {
+    title: "Limpieza",
+    description: "Protegemos todas las superficies y realizamos limpieza diaria del área de trabajo.",
+    icon: "🧹"
+  },
+  {
+    title: "Presupuesto Detallado",
+    description: "Presupuesto gratuito y sin compromiso en menos de 24 horas.",
+    icon: "📋"
+  }
+];
+---
+
+<section class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+        ¿Por Qué Elegirnos?
+      </span>
+      <h2 class="text-3xl font-bold mt-4 mb-4">Las Razones para Confiar en Nosotros</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Descubre por qué somos la mejor opción para tu proyecto de pintura en El Cañaveral
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {reasons.map(reason => (
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="bg-orange-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+            <span class="text-3xl">{reason.icon}</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{reason.title}</h3>
+          <p class="text-gray-600">{reason.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

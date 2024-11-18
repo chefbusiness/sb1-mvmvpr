@@ -1,0 +1,54 @@
+---
+const brands = [
+  {
+    name: "TITANLUX",
+    description: "Calidad premium española",
+    color: "#E64A19"
+  },
+  {
+    name: "VALENTINE",
+    description: "Especialistas en color",
+    color: "#D84315"
+  },
+  {
+    name: "JOTUN",
+    description: "Líder en protección",
+    color: "#BF360C"
+  },
+  {
+    name: "PROCOLOR",
+    description: "Innovación continua",
+    color: "#DD2C00"
+  }
+];
+---
+
+<section class="bg-white py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+        Marcas de Confianza
+      </span>
+      <h2 class="text-3xl font-bold mt-4 mb-4">Trabajamos con los Mejores</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Utilizamos solo productos de primera calidad de las marcas más reconocidas del mercado
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center max-w-4xl mx-auto">
+      {brands.map(brand => (
+        <div class="text-center transform hover:scale-105 transition-transform duration-300">
+          <div class="h-20 flex items-center justify-center">
+            <div 
+              class="font-bold text-xl px-6 py-3 rounded-lg"
+              style={`color: ${brand.color}; border: 2px solid ${brand.color}`}
+            >
+              {brand.name}
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mt-4">{brand.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

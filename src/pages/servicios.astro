@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const servicios = [
+  {
+    title: "Pintura de Viviendas",
+    description: "Transformamos tu hogar con acabados perfectos y colores que reflejan tu estilo. Especialistas en interiores y exteriores.",
+    icon: "🏠",
+    details: [
+      "Pintura de interiores y exteriores",
+      "Acabados lisos y texturizados",
+      "Reparación de grietas y desperfectos",
+      "Asesoramiento en selección de colores",
+      "Protección contra humedad"
+    ]
+  },
+  {
+    title: "Locales Comerciales",
+    description: "Dale una nueva imagen a tu negocio con nuestro servicio profesional de pintura. Mejoramos la experiencia de tus clientes.",
+    icon: "🏪",
+    details: [
+      "Pintura comercial especializada",
+      "Trabajos en horarios flexibles",
+      "Acabados duraderos y lavables",
+      "Señalización y rotulación",
+      "Renovación de fachadas"
+    ]
+  },
+  {
+    title: "Oficinas",
+    description: "Creamos espacios de trabajo modernos y productivos con acabados profesionales que reflejan la identidad de tu empresa.",
+    icon: "🏢",
+    details: [
+      "Pintura para espacios corporativos",
+      "Colores acordes a tu marca",
+      "Acabados anti-reflejantes",
+      "Trabajos fuera de horario laboral",
+      "Mantenimiento programado"
+    ]
+  },
+  {
+    title: "Zonas Comunes",
+    description: "Mantenimiento y renovación de áreas comunes en comunidades de vecinos con la máxima calidad y durabilidad.",
+    icon: "🏘️",
+    details: [
+      "Escaleras y pasillos",
+      "Garajes y trasteros",
+      "Fachadas y patios",
+      "Pintura anti-humedad",
+      "Señalización de parkings"
+    ]
+  },
+  {
+    title: "Chalets y Adosados",
+    description: "Soluciones de pintura integrales para viviendas unifamiliares y adosados, cuidando cada detalle.",
+    icon: "🏡",
+    details: [
+      "Fachadas y exteriores",
+      "Interiores personalizados",
+      "Impermeabilización",
+      "Tratamiento de madera",
+      "Protección UV"
+    ]
+  },
+  {
+    title: "Pintura Decorativa",
+    description: "Técnicas especiales y acabados decorativos para crear espacios únicos y personalizados.",
+    icon: "🎨",
+    details: [
+      "Efectos especiales",
+      "Papel pintado",
+      "Estucos y veladuras",
+      "Murales y diseños",
+      "Microcemento"
+    ]
+  }
+];
+---
+
+<Layout title="Servicios de Pintura Profesional en El Cañaveral | Pintores Madrid">
+  <main class="pt-24">
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Nuestros Servicios
+          </span>
+          <h1 class="text-4xl font-bold mt-4 mb-4">Servicios Profesionales de Pintura</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Ofrecemos soluciones integrales de pintura adaptadas a cada necesidad, con la máxima calidad y profesionalidad.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {servicios.map(servicio => (
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div class="bg-orange-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                <span class="text-3xl">{servicio.icon}</span>
+              </div>
+              
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">{servicio.title}</h3>
+              <p class="text-gray-600 mb-6">{servicio.description}</p>
+              
+              <ul class="space-y-3">
+                {servicio.details.map(detail => (
+                  <li class="flex items-center gap-2 text-gray-700">
+                    <span class="text-primary">✓</span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#presupuesto" class="inline-flex items-center text-primary font-medium mt-6 hover:gap-2 transition-all duration-300">
+                Solicitar Presupuesto
+                <span class="ml-2">→</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout>

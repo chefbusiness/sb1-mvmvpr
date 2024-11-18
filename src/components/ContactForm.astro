@@ -1,0 +1,199 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Solicita tu Presupuesto Gratuito" } = Astro.props;
+
+const email = "info@pintoreselcanaveral.pro";
+const phone = "34744717942";
+const whatsappMessage = encodeURIComponent("Hola, me gustaría solicitar un presupuesto para pintura en El Cañaveral.");
+const whatsappUrl = `https://wa.me/${phone}?text=${whatsappMessage}`;
+---
+
+<div class="contact-container px-4 py-8 md:py-16" id="presupuesto">
+    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="grid md:grid-cols-3 gap-0">
+            <div class="bg-primary p-8 md:p-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                    {title}
+                </h3>
+                <p class="text-white/90 mb-8">
+                    ¡Respuesta garantizada en menos de 24 horas! 🚀
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl">⚡</span>
+                        <div>
+                            <h4 class="text-white font-semibold">Respuesta Rápida</h4>
+                            <p class="text-white/80 text-sm">Valoramos tu tiempo. Presupuesto en 24h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl">💯</span>
+                        <div>
+                            <h4 class="text-white font-semibold">Sin Compromiso</h4>
+                            <p class="text-white/80 text-sm">Presupuesto totalmente gratuito</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl">🎨</span>
+                        <div>
+                            <h4 class="text-white font-semibold">Servicio Premium</h4>
+                            <p class="text-white/80 text-sm">Materiales de primera calidad incluidos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/20">
+                    <a 
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg w-full"
+                    >
+                        <span>💬</span>
+                        Contactar por WhatsApp
+                    </a>
+                    <p class="text-center text-white/80 text-sm mt-4">
+                        Respuesta inmediata vía WhatsApp 📱
+                    </p>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 p-8 md:p-12">
+                <form 
+                    action={`mailto:${email}`}
+                    method="POST"
+                    enctype="text/plain"
+                    class="space-y-6"
+                    onsubmit="window.location.href=`https://wa.me/34744717942?text=${encodeURIComponent('Hola, me gustaría solicitar un presupuesto para pintura en El Cañaveral. ' + document.getElementById('message').value)}`; return false;"
+                >
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre*</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                placeholder="Tu nombre completo"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            >
+                            <p class="text-sm text-gray-500 mt-1">Para un trato más personal</p>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono*</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                required 
+                                placeholder="Tu mejor teléfono de contacto"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            >
+                            <p class="text-sm text-gray-500 mt-1">Te llamaremos lo antes posible</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            placeholder="Tu correo electrónico"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        >
+                        <p class="text-sm text-gray-500 mt-1">Para enviarte el presupuesto detallado</p>
+                    </div>
+
+                    <div>
+                        <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Servicio*</label>
+                        <select 
+                            id="service" 
+                            name="service" 
+                            required
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        >
+                            <option value="">Selecciona el tipo de servicio</option>
+                            <option value="vivienda">Pintura de Vivienda</option>
+                            <option value="local">Local Comercial</option>
+                            <option value="oficina">Oficina</option>
+                            <option value="comunidad">Zonas Comunes</option>
+                            <option value="chalet">Chalet o Adosado</option>
+                            <option value="otros">Otros Servicios</option>
+                        </select>
+                        <p class="text-sm text-gray-500 mt-1">Para ofrecerte el mejor servicio</p>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Detalles del Proyecto*</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="4" 
+                            required 
+                            placeholder="Cuéntanos más sobre tu proyecto (metros cuadrados, tipo de pintura, etc.)"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        ></textarea>
+                        <p class="text-sm text-gray-500 mt-1">Cuantos más detalles, mejor será el presupuesto</p>
+                    </div>
+
+                    <button 
+                        type="submit"
+                        class="w-full bg-primary hover:bg-secondary text-white font-semibold py-4 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    >
+                        ¡Quiero mi Presupuesto Gratuito! 🎨
+                    </button>
+
+                    <p class="text-center text-sm text-gray-500">
+                        ¡Respuesta garantizada en menos de 24h! 🚀
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Función para formatear el mensaje de WhatsApp
+function formatWhatsAppMessage(formData) {
+    const serviceTypes = {
+        vivienda: "Pintura de Vivienda",
+        local: "Local Comercial",
+        oficina: "Oficina",
+        comunidad: "Zonas Comunes",
+        chalet: "Chalet o Adosado",
+        otros: "Otros Servicios"
+    };
+
+    return `
+Hola, solicito presupuesto para pintura en El Cañaveral:
+
+👤 Nombre: ${formData.get('name')}
+📞 Teléfono: ${formData.get('phone')}
+📧 Email: ${formData.get('email')}
+🎨 Servicio: ${serviceTypes[formData.get('service')] || formData.get('service')}
+
+📝 Detalles:
+${formData.get('message')}
+    `.trim();
+}
+
+// Manejar el envío del formulario
+document.querySelector('form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const message = formatWhatsAppMessage(formData);
+    const whatsappUrl = `https://wa.me/34744717942?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+});
+</script>

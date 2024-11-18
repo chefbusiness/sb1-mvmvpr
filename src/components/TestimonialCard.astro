@@ -1,0 +1,48 @@
+---
+interface Props {
+	name: string;
+	location: string;
+	text: string;
+}
+
+const { name, location, text } = Astro.props;
+---
+
+<div class="testimonial-card">
+	<p class="text">"{text}"</p>
+	<div class="author">
+		<strong>{name}</strong>
+		<span>{location}</span>
+	</div>
+</div>
+
+<style>
+	.testimonial-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	}
+
+	.text {
+		color: #666;
+		font-style: italic;
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	.author {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.author strong {
+		color: #333;
+	}
+
+	.author span {
+		color: #666;
+		font-size: 0.9rem;
+	}
+</style>

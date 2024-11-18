@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const features = [
+  {
+    title: "Pintura Interior",
+    description: "Acabados perfectos en paredes, techos y molduras con las mejores pinturas.",
+    icon: "🏠"
+  },
+  {
+    title: "Pintura Exterior",
+    description: "Protección y belleza para fachadas con pinturas resistentes a la intemperie.",
+    icon: "🏗️"
+  },
+  {
+    title: "Reparación de Superficies",
+    description: "Tratamiento de grietas, humedades y otros desperfectos antes de pintar.",
+    icon: "🔧"
+  },
+  {
+    title: "Asesoramiento de Color",
+    description: "Te ayudamos a elegir la combinación perfecta para tu hogar.",
+    icon: "🎨"
+  }
+];
+---
+
+<Layout 
+  title="Pintura de Viviendas en El Cañaveral | Pintores Profesionales Madrid"
+  description="Servicio profesional de pintura para viviendas en El Cañaveral. Acabados de calidad, materiales premium y garantía en todos nuestros trabajos."
+>
+  <main class="pt-24">
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Pintura Residencial
+          </span>
+          <h1 class="text-4xl font-bold mt-4 mb-4">Pintura de Viviendas</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Transformamos tu hogar con acabados profesionales y materiales de primera calidad.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div class="rounded-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+              alt="Pintura de viviendas en El Cañaveral"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <h2 class="text-3xl font-bold mb-6">¿Por qué elegir nuestro servicio?</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Presupuesto detallado y sin compromiso</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Materiales de primera calidad</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Equipo profesional y cualificado</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Limpieza y protección del mobiliario</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Garantía en todos nuestros trabajos</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map(feature => (
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div class="bg-orange-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <span class="text-2xl">{feature.icon}</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout>

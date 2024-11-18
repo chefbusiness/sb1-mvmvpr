@@ -1,0 +1,60 @@
+---
+const testimonios = [
+  {
+    nombre: "Ana García",
+    ubicacion: "El Cañaveral",
+    texto: "Excelente trabajo en la pintura de mi piso. Los acabados son perfectos y el equipo muy profesional. Cumplieron con los plazos y dejaron todo impecable.",
+    rating: 5
+  },
+  {
+    nombre: "Carlos Martínez",
+    ubicacion: "Vicálvaro",
+    texto: "Pintaron mi local comercial y quedó espectacular. Muy profesionales y atentos a los detalles. El precio muy competitivo y el resultado inmejorable.",
+    rating: 5
+  },
+  {
+    nombre: "Laura Sánchez",
+    ubicacion: "El Cañaveral",
+    texto: "Gran experiencia con el equipo. Muy profesionales y atentos. El resultado superó mis expectativas. Los recomiendo sin duda para cualquier trabajo de pintura.",
+    rating: 5
+  }
+];
+---
+
+<section class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+        Testimonios
+      </span>
+      <h2 class="text-3xl font-bold mt-4 mb-4">Lo que dicen nuestros clientes</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Opiniones reales de clientes satisfechos con nuestro trabajo en El Cañaveral
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonios.map(testimonio => (
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="flex gap-1 mb-4">
+            {[...Array(testimonio.rating)].map(() => (
+              <span class="text-yellow-400">★</span>
+            ))}
+          </div>
+          
+          <p class="text-gray-600 mb-6 italic">"{testimonio.texto}"</p>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <span class="text-xl">{testimonio.nombre.charAt(0)}</span>
+            </div>
+            <div>
+              <h4 class="font-semibold">{testimonio.nombre}</h4>
+              <p class="text-sm text-gray-500">{testimonio.ubicacion}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

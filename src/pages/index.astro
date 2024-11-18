@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import PaintBrands from '../components/PaintBrands.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Pintores Profesionales en El Cañaveral | Servicios de Pintura Madrid">
+  <main>
+    <Hero />
+    
+    <section class="services" id="servicios">
+      <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Nuestros Servicios
+          </span>
+          <h2 class="text-4xl font-bold mt-4 mb-4">Soluciones Integrales de Pintura</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Ofrecemos servicios profesionales de pintura adaptados a tus necesidades
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard
+            title="Pintura de Viviendas"
+            description="Transformamos tu hogar con acabados perfectos y colores que reflejan tu estilo."
+            icon="🏠"
+          />
+          <ServiceCard
+            title="Locales Comerciales"
+            description="Dale una nueva imagen a tu negocio con nuestro servicio profesional de pintura."
+            icon="🏪"
+          />
+          <ServiceCard
+            title="Oficinas"
+            description="Creamos espacios de trabajo modernos y productivos con acabados profesionales."
+            icon="🏢"
+          />
+          <ServiceCard
+            title="Zonas Comunes"
+            description="Mantenimiento y renovación de áreas comunes en comunidades de vecinos."
+            icon="🏘️"
+          />
+          <ServiceCard
+            title="Chalets y Adosados"
+            description="Soluciones de pintura integrales para viviendas unifamiliares y adosados."
+            icon="🏡"
+          />
+          <ServiceCard
+            title="Pintura Decorativa"
+            description="Técnicas especiales y acabados decorativos para espacios únicos."
+            icon="🎨"
+          />
+        </div>
+      </div>
+    </section>
+
+    <WhyChooseUs />
+    <PaintBrands />
+    <Testimonials />
+    <ContactForm />
+  </main>
+</Layout>

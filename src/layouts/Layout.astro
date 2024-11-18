@@ -1,0 +1,133 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LeadPopup from '../components/LeadPopup.astro';
+import BackToTop from '../components/BackToTop.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title,
+  description = "Pintores profesionales en El Cañaveral. Servicios de pintura para viviendas, locales comerciales, oficinas y comunidades. Presupuesto gratis en 24h."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/og-image.jpg" />
+  </head>
+  <body>
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-40">
+      <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between h-20">
+          <a href="/" class="text-xl font-bold text-primary">
+            Pintores El Cañaveral
+          </a>
+          
+          <div class="hidden md:flex items-center gap-8">
+            <a href="/" class="text-gray-600 hover:text-primary transition-colors">Inicio</a>
+            <a href="/servicios" class="text-gray-600 hover:text-primary transition-colors">Servicios</a>
+            <a href="/proyectos" class="text-gray-600 hover:text-primary transition-colors">Proyectos</a>
+            <a href="/faq" class="text-gray-600 hover:text-primary transition-colors">FAQ</a>
+            <a href="/blog" class="text-gray-600 hover:text-primary transition-colors">Blog</a>
+            <a 
+              href="#presupuesto"
+              class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-lg font-medium transition-colors"
+            >
+              Solicitar Presupuesto
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Pintores El Cañaveral</h3>
+            <p class="text-gray-400">
+              Servicios profesionales de pintura en El Cañaveral, Madrid. Calidad y compromiso garantizados.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Servicios Principales</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="/pintura-viviendas" class="hover:text-primary transition-colors">Pintura de Viviendas</a></li>
+              <li><a href="/pintura-locales-comerciales" class="hover:text-primary transition-colors">Pintura de Locales Comerciales</a></li>
+              <li><a href="/pintura-oficinas" class="hover:text-primary transition-colors">Pintura de Oficinas</a></li>
+              <li><a href="/pintura-chalets" class="hover:text-primary transition-colors">Pintura de Chalets</a></li>
+              <li><a href="/pintura-zonas-comunes" class="hover:text-primary transition-colors">Pintura de Zonas Comunes</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Enlaces</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="/servicios" class="hover:text-primary transition-colors">Servicios</a></li>
+              <li><a href="/proyectos" class="hover:text-primary transition-colors">Proyectos</a></li>
+              <li><a href="/faq" class="hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href="/blog" class="hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="/politica-privacidad" class="hover:text-primary transition-colors">Política de Privacidad</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Contacto</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-center gap-2">
+                <span>📞</span>
+                <a href="tel:+34744717942" class="hover:text-primary transition-colors">+34 744 717 942</a>
+              </li>
+              <li class="flex items-center gap-2">
+                <span>📧</span>
+                <a href="mailto:info@pintoreselcanaveral.pro" class="hover:text-primary transition-colors">info@pintoreselcanaveral.pro</a>
+              </li>
+              <li class="flex items-center gap-2">
+                <span>📍</span>
+                <span>El Cañaveral, Madrid</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Pintores El Cañaveral. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <WhatsAppFloat />
+    <LeadPopup />
+    <BackToTop />
+    <CookieBanner />
+  </body>
+</html>

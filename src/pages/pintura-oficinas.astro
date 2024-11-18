@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const features = [
+  {
+    title: "Planificación",
+    description: "Organizamos el trabajo para minimizar interrupciones.",
+    icon: "📋"
+  },
+  {
+    title: "Acabados Profesionales",
+    description: "Pinturas especiales anti-reflejantes y duraderas.",
+    icon: "✨"
+  },
+  {
+    title: "Señalización",
+    description: "Incluimos rotulación y señalización corporativa.",
+    icon: "🔍"
+  },
+  {
+    title: "Mantenimiento",
+    description: "Programas de mantenimiento periódico disponibles.",
+    icon: "🔄"
+  }
+];
+---
+
+<Layout 
+  title="Pintura de Oficinas en El Cañaveral | Pintores Profesionales Madrid"
+  description="Servicio especializado en pintura de oficinas y espacios de trabajo en El Cañaveral. Acabados profesionales y mínima interrupción."
+>
+  <main class="pt-24">
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Espacios de Trabajo
+          </span>
+          <h1 class="text-4xl font-bold mt-4 mb-4">Pintura de Oficinas</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Creamos espacios de trabajo productivos y profesionales con acabados de calidad.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div class="rounded-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+              alt="Pintura de oficinas en El Cañaveral"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <h2 class="text-3xl font-bold mb-6">Características del servicio</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Trabajo fuera de horario laboral</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Pinturas especiales anti-reflejantes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Protección del mobiliario y equipos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Acabados lavables y duraderos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary text-xl">✓</span>
+                <span>Señalización corporativa incluida</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map(feature => (
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div class="bg-orange-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <span class="text-2xl">{feature.icon}</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout>

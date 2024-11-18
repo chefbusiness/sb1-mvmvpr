@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const faqs = [
+  {
+    question: "¿Cuánto tiempo tarda un trabajo de pintura?",
+    answer: "El tiempo depende del tamaño y complejidad del proyecto. Por ejemplo, un piso de 80m² suele llevar entre 3-4 días laborables. Siempre proporcionamos un cronograma detallado antes de comenzar."
+  },
+  {
+    question: "¿Qué tipo de pinturas utilizáis?",
+    answer: "Trabajamos con las mejores marcas del mercado como Titanlux, Valentine, Jotun y Procolor. Seleccionamos la pintura según las necesidades específicas de cada proyecto."
+  },
+  {
+    question: "¿Dais garantía por el trabajo?",
+    answer: "Sí, todos nuestros trabajos tienen garantía. Para interiores ofrecemos 2 años de garantía y para exteriores 3 años, cubriendo cualquier defecto en la aplicación."
+  },
+  {
+    question: "¿Hacéis presupuesto sin compromiso?",
+    answer: "Sí, realizamos presupuestos detallados totalmente gratuitos y sin compromiso en menos de 24 horas."
+  },
+  {
+    question: "¿Protegéis los muebles y suelos durante el trabajo?",
+    answer: "Sí, protegemos todos los elementos con plásticos y materiales específicos. Al finalizar, realizamos una limpieza completa dejando todo impecable."
+  },
+  {
+    question: "¿Trabajáis los fines de semana?",
+    answer: "Sí, nos adaptamos a las necesidades del cliente. Para locales comerciales y oficinas solemos trabajar en horarios que no interfieran con su actividad."
+  },
+  {
+    question: "¿Qué zona geográfica cubrís?",
+    answer: "Nos especializamos en El Cañaveral y zonas cercanas de Madrid, incluyendo Vicálvaro, San Blas, y alrededores."
+  },
+  {
+    question: "¿Qué formas de pago aceptáis?",
+    answer: "Aceptamos transferencia bancaria, efectivo y Bizum. Normalmente solicitamos un 20% de señal al inicio y el resto al finalizar el trabajo."
+  }
+];
+
+const brands = [
+  {
+    name: "TITANLUX",
+    description: "Calidad premium española",
+    color: "#E64A19"
+  },
+  {
+    name: "VALENTINE",
+    description: "Especialistas en color",
+    color: "#D84315"
+  },
+  {
+    name: "JOTUN",
+    description: "Líder en protección",
+    color: "#BF360C"
+  },
+  {
+    name: "PROCOLOR",
+    description: "Innovación continua",
+    color: "#DD2C00"
+  }
+];
+---
+
+<Layout 
+  title="Preguntas Frecuentes | Pintores El Cañaveral"
+  description="Resolvemos tus dudas sobre nuestros servicios de pintura en El Cañaveral. Información sobre presupuestos, materiales, tiempos y garantías."
+>
+  <main class="pt-24">
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            FAQ
+          </span>
+          <h1 class="text-4xl font-bold mt-4 mb-4">Preguntas Frecuentes</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Resolvemos las dudas más comunes sobre nuestros servicios de pintura
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="space-y-6">
+            {faqs.map((faq, index) => (
+              <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                <h3 class="text-xl font-semibold mb-3 flex items-start gap-3">
+                  <span class="text-primary">Q:</span>
+                  {faq.question}
+                </h3>
+                <p class="text-gray-600 ml-6">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Nuestras Marcas
+          </span>
+          <h2 class="text-3xl font-bold mt-4 mb-4">Trabajamos con los Mejores</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Utilizamos solo productos de primera calidad de las marcas más reconocidas del mercado
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center max-w-4xl mx-auto">
+          {brands.map(brand => (
+            <div class="text-center transform hover:scale-105 transition-transform duration-300">
+              <div class="h-20 flex items-center justify-center">
+                <div 
+                  class="font-bold text-xl px-6 py-3 rounded-lg"
+                  style={`color: ${brand.color}; border: 2px solid ${brand.color}`}
+                >
+                  {brand.name}
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 mt-4">{brand.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout>

@@ -1,0 +1,52 @@
+---
+import WhatsAppLink from './WhatsAppLink.astro';
+import ImageOptimized from './ImageOptimized.astro';
+---
+
+<section class="relative bg-white pt-20 md:pt-32 pb-12 md:pb-16 overflow-hidden">
+  <!-- Background image with gradient overlay -->
+  <div class="absolute inset-0 w-full h-full">
+    <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80 md:to-transparent z-10"></div>
+    <ImageOptimized 
+      src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80"
+      alt="Pintores profesionales trabajando en El Cañaveral"
+      className="w-full h-full object-cover object-center"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-20">
+    <div class="max-w-2xl">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4 md:mb-6">
+        <span class="text-primary">Pintores Profesionales</span><br/>
+        en <span class="bg-orange-100 px-2">El Cañaveral</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+        Transforma tu espacio con los mejores profesionales. Presupuesto sin compromiso en 24h.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 mb-6 md:mb-8">
+        <WhatsAppLink buttonClass="w-full sm:w-auto text-center bg-primary hover:bg-secondary text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" text="Solicitar Presupuesto Gratis" />
+        <a href="/proyectos" class="w-full sm:w-auto text-center bg-gray-800 hover:bg-gray-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          Ver Trabajos Realizados
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 md:gap-6">
+        <div class="flex items-center gap-2">
+          <span class="text-xl md:text-2xl">⭐</span>
+          <span class="text-sm md:text-base text-gray-600">Garantía de Calidad</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xl md:text-2xl">🎨</span>
+          <span class="text-sm md:text-base text-gray-600">Materiales Premium</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xl md:text-2xl">⚡</span>
+          <span class="text-sm md:text-base text-gray-600">Respuesta Rápida</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

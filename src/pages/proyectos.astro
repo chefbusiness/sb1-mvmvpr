@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+
+const proyectos = [
+  {
+    title: "Renovación Integral Vivienda",
+    location: "El Cañaveral",
+    type: "Residencial",
+    description: "Pintura completa de vivienda de 90m² incluyendo techos, paredes y carpintería.",
+    image: "https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+  },
+  {
+    title: "Local Comercial Moderno",
+    location: "Vicálvaro",
+    type: "Comercial",
+    description: "Transformación de local comercial con acabados especiales y rotulación.",
+    image: "https://images.unsplash.com/photo-1604709178681-82325c04f8bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    title: "Oficinas Corporativas",
+    location: "El Cañaveral",
+    type: "Oficinas",
+    description: "Pintura de oficinas de 200m² con acabados profesionales y señalización.",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+  },
+  {
+    title: "Comunidad de Vecinos",
+    location: "El Cañaveral",
+    type: "Zonas Comunes",
+    description: "Renovación de zonas comunes, escaleras y parking en comunidad de vecinos.",
+    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    title: "Chalet Unifamiliar",
+    location: "El Cañaveral",
+    type: "Residencial",
+    description: "Pintura exterior e interior de chalet, incluyendo vallado y pérgola.",
+    image: "https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    title: "Reforma Integral Ático",
+    location: "Vicálvaro",
+    type: "Residencial",
+    description: "Pintura completa de ático dúplex con terraza y acabados premium.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80"
+  }
+];
+
+const testimonios = [
+  {
+    name: "Ana García",
+    location: "El Cañaveral",
+    text: "Excelente trabajo en la pintura de mi piso. Profesionales, puntuales y muy limpios. Totalmente recomendados."
+  },
+  {
+    name: "Carlos Martínez",
+    location: "Vicálvaro",
+    text: "Pintaron mi local comercial y quedó espectacular. Cumplieron con los plazos y el presupuesto acordado."
+  },
+  {
+    name: "Laura Sánchez",
+    location: "El Cañaveral",
+    text: "Gran experiencia con el equipo. Muy profesionales y atentos a los detalles. El resultado superó mis expectativas."
+  }
+];
+---
+
+<Layout title="Proyectos y Trabajos Realizados | Pintores El Cañaveral">
+  <main class="pt-24">
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Nuestros Proyectos
+          </span>
+          <h1 class="text-4xl font-bold mt-4 mb-4">Trabajos Realizados</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Descubre algunos de nuestros proyectos más destacados en El Cañaveral y alrededores.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {proyectos.map(proyecto => (
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div class="relative overflow-hidden h-64">
+                <img 
+                  src={proyecto.image} 
+                  alt={proyecto.title}
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4 text-white">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="bg-primary/90 px-3 py-1 rounded-full text-sm">
+                      {proyecto.type}
+                    </span>
+                    <span class="text-sm opacity-90">
+                      {proyecto.location}
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-bold">{proyecto.title}</h3>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600">{proyecto.description}</p>
+                <a href="#presupuesto" class="inline-flex items-center text-primary font-medium mt-4 hover:gap-2 transition-all duration-300">
+                  Solicitar Presupuesto Similar
+                  <span class="ml-2">→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="bg-orange-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            Testimonios
+          </span>
+          <h2 class="text-3xl font-bold mt-4 mb-4">Lo que dicen nuestros clientes</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Opiniones reales de clientes satisfechos con nuestro trabajo.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonios.map(testimonio => (
+            <TestimonialCard
+              name={testimonio.name}
+              location={testimonio.location}
+              text={testimonio.text}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout></content>
